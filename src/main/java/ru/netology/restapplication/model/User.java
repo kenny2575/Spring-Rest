@@ -1,9 +1,15 @@
 package ru.netology.restapplication.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 import java.util.Objects;
 
 public class User {
+    @NotBlank(message = "User name is empty!")
+    @Size(min = 2, max = 30, message = "User name is longer or shorter than expected!")
     String user;
+    @NotBlank(message = "Password is empty")
     String password;
 
     public User(String user, String password) {
