@@ -16,9 +16,8 @@ public class UserRepository {
         userAuthoritiesData.put(new User("Writer", "BestWriter123"), List.of(Authorities.WRITE));
         userAuthoritiesData.put(new User("Reader", "StealthWriter"), List.of(Authorities.READ));
     }
-    public List<Authorities> getUserAuthorities(String user, String password) {
-        var userCredential = new User(user, password);
-        return userAuthoritiesData.getOrDefault(userCredential, null);
+    public List<Authorities> getUserAuthorities(User user) {
+        return userAuthoritiesData.getOrDefault(user, null);
     }
 
 }
